@@ -5,8 +5,7 @@ zeroes = 0
 state = 50
 
 turns.each do |turn|
-    state += turn
-    state %= 100
+    state = (state + turn) % 100
     zeroes += 1 if state == 0
 end
 
