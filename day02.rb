@@ -10,7 +10,6 @@ end
 
 def invalid_id?(num)
     s = num.to_s
-    return false if s.length.odd?
     s[0...s.length / 2] == s[s.length / 2..-1]
 end
 
@@ -20,10 +19,7 @@ puts ranges.sum { |r| invalid_ids_within(r).sum }
 
 def invalid_id?(num)
   s = num.to_s
-  1.upto(s.length / 2).any? do |len|
-    next unless s.length % len == 0
-    s[0...len] * (s.length / len) == s
-  end
+  1.upto(s.length / 2).any? { |len| s.chars.each_slice(len).uniq.size == 1 }
 end
 
 puts ranges.sum { |r| invalid_ids_within(r).sum }
