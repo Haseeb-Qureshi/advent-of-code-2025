@@ -1,7 +1,6 @@
 require_relative 'helpers'
 
 ROLL = '@'
-
 input = File.readlines('data04.txt').map(&:chomp).map(&:chars)
 
 # if 3 or fewer in the 8 neighbor spots, then it's accessible by forklift
