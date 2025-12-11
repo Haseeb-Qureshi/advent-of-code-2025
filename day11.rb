@@ -1,14 +1,12 @@
 input = File.readlines('data11.txt').map(&:chomp)
 
 graph = Hash.new { |h, k| h[k] = [] }
-inverse_graph = Hash.new { |h, k| h[k] = [] }
 
 input.each do |line|
   in_edge, *out_edges = line.split
   in_edge = in_edge.gsub(':', '')
   out_edges.each do |out_edge|
     graph[in_edge] << out_edge
-    inverse_graph[out_edge] << in_edge
   end
 end
 
